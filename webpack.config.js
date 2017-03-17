@@ -15,8 +15,12 @@ module.exports = {
             },
             {
                 test: /\.js$/,
+                loader: 'babel-loader',
                 exclude: /node_modules/,
-                loaders: ['eslint-loader', 'babel-loader?presets[]=es2015']
+                query: {
+                  presets: ['es2015', 'react']
+                }
+                //loaders: ['eslint-loader', 'babel-loader?presets[]=es2015']
             }
         ]
     },

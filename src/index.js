@@ -1,11 +1,21 @@
 /*jshint esversion:6*/
 
-require("./styles/style.css");
-require("jquery");
+//require("./styles/style.css");
+//require("jquery");
 
 // Main app
+import React from 'react';
+import { render } from 'react-dom';
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
+import todoApp from './reducers';
+import App from './components/App';
 
-var f = param => console.log(param);
+let store = createStore(todoApp);
 
-document.write('Hello fe base !');
-f('es 6 working :)');
+render(
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  document.getElementById('container')
+);
